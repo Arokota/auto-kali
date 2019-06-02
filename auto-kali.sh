@@ -13,10 +13,10 @@ fi
 
 red=$'\e[1;31m'
 white=$'\e[0m'
-
+: 'Comment:
 #Update
 echo "$white Updating quick..."
-apt update && apt upgrade > /dev/null 2>&1
+#apt update -y > /dev/null 2>&1 && apt upgrade -y > /dev/null 2>&1
 clear
 
 #Setup Suckless Terminal
@@ -49,16 +49,17 @@ chsh -s `which fish`  > /dev/null 2>&1
 echo "Installing gdb-peda... $red (4/6) $white"
 git clone https://github.com/longld/peda.git ~/peda  > /dev/null 2>&1
 echo "source ~/peda/peda.py" >> ~/.gdbinit 
-
+'
 #Setup CME
+echo "Installing CME..."
 cd ~
-apt install -y libssl-dev libffi-dev python-dev build-essential python-pip > /dev/null 2>&1
-pip install pipenv > /dev/null 2>&1
-git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec > /dev/null 2>&1
+apt install -y libssl-dev libffi-dev python-dev build-essential python-pip #> /dev/null 2>&1
+pip install pipenv #> /dev/null 2>&1
+git clone --recursive https://github.com/byt3bl33d3r/CrackMapExec #> /dev/null 2>&1
 cd CrackMapExec
-pipenv install > /dev/null 2>&1
-pipenv shell > /dev/null 2>&1
-python setup.py install > /dev/null 2>&1
+pipenv install #> /dev/null 2>&1
+pipenv shell #> /dev/null 2>&1
+python setup.py install #> /dev/null 2>&1
 
 #Various Packages
 echo "Installing various packages... $red (5/6) $white"
